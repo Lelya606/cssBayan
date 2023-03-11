@@ -1,0 +1,13 @@
+:root {
+  --c-bone: #DECCB393;
+}
+
+body {
+  margin: 0;
+  background-color: var(--c-bone);
+}
+
+.accordion {
+  max-width: 16rem;
+  margin: 0 auto;
+}
