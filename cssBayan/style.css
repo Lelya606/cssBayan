@@ -40,6 +40,7 @@ body {
 .accordion-block__img {
   display: flex;
   justify-content: center;
+  height: 0;
   background-color: var(--c-bridal-heath);
   transform: translate(0, -50%) scaleY(0);
   transition: transform 0.5s;
@@ -47,7 +48,7 @@ body {
 
 .accordion-block__img img {
   width: 100%;
-  max-width: 12.5rem;
+  max-width: 20rem;
   padding: 1.25rem;
 }
 
@@ -73,5 +74,6 @@ input:checked + .accordion-block__label svg,
 
 input:checked ~ .accordion-block__img,
 .accordion-block__label:hover ~ .accordion-block__img {
-  transform: translate(0,0);
+  height: 100%;
+  transform: translate(0, 0);
 }
