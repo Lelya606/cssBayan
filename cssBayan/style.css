@@ -1,13 +1,77 @@
 :root {
   --c-bone: #DECCB393;
+  --c-ecru-white: #F3EFE0;
+  --c-font: #808080FF;
+  --c-black: #000000E8;
+  --c-bridal-heath: #FFFAF040;
 }
 
 body {
   margin: 0;
   background-color: var(--c-bone);
+  color: var(--c-font);
 }
 
 .accordion {
-  max-width: 16rem;
+  max-width: 40rem;
   margin: 0 auto;
+}
+
+.accordion-block__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1.5rem;
+  background: var(--c-ecru-white);
+}
+
+.accordion-block__label {
+  cursor: pointer;
+}
+
+.accordion-block input {
+  display: none;
+}
+
+.accordion-block__label span {
+  width: 100%;
+}
+
+.accordion-block__img {
+  display: flex;
+  justify-content: center;
+  background-color: var(--c-bridal-heath);
+  transform: translate(0, -50%) scaleY(0);
+  transition: transform 0.5s;
+}
+
+.accordion-block__img img {
+  width: 100%;
+  max-width: 12.5rem;
+  padding: 1.25rem;
+}
+
+.accordion-block__label svg {
+  transform: translateY(0);
+  transition: transform 0.25s;
+}
+
+input:checked + .accordion-block__label path,
+.accordion-block__label:hover path {
+  fill: var(--c-black);
+}
+
+input:checked + .accordion-block__label span,
+.accordion-block__label:hover span {
+  color: var(--c-black);
+}
+
+input:checked + .accordion-block__label svg,
+.accordion-block__label:hover svg {
+  transform: rotate(180deg);
+}
+
+input:checked ~ .accordion-block__img,
+.accordion-block__label:hover ~ .accordion-block__img {
+  transform: translate(0,0);
 }
