@@ -1,0 +1,145 @@
+:root {
+  --c-bone: #DECCB393;
+  --c-ecru-white: #F3EFE0;
+  --c-font: #808080FF;
+  --c-black: #000000E8;
+  --c-bridal-heath: #FFFAF040;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--c-bone);
+  color: var(--c-font);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.accordion {
+  margin: 0 auto;
+  box-shadow: 0 4px 8px 3px rgb(0 0 0 / 15%);
+}
+
+.accordion-title {
+  padding: 1.4rem;
+  margin: 0;
+}
+
+.accordion-block__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1.5rem;
+  background: var(--c-ecru-white);
+}
+
+.accordion-block input {
+  display: none;
+}
+
+.accordion-block__img {
+  display: flex;
+  justify-content: center;
+  height: 0;
+  background-color: var(--c-bridal-heath);
+  transform: translate(0,-50%) scaleY(0);
+  transition: height, ease-out 0.2s;
+}
+
+.accordion-block__img img {
+  width: 100%;
+}
+
+.accordion-block__head svg {
+  transform: translateY(0);
+  transition: transform 0.5s;
+}
+
+input:checked + .accordion-block__label path {
+  fill: var(--c-black);
+}
+
+input:checked + .accordion-block__label span {
+  color: var(--c-black);
+}
+
+input:checked + .accordion-block__label svg {
+  transform: rotate(180deg);
+}
+
+input:checked + .accordion-block__label .accordion-block__img {
+  height: 100%;
+  transform: translate(0,0);
+}
+
+@media (hover: hover) {
+  .accordion:hover .accordion-block path {
+    fill: var(--c-black);
+  }
+
+  .accordion:hover .accordion-block {
+    color: var(--c-black);
+  }
+
+  .accordion-block:hover,
+  .accordion-block__label:hover {
+    cursor: pointer;
+  }
+
+  .accordion-block:hover .accordion-block__img {
+    height: 100%;
+    transform: translate(0,0);
+  }
+
+  .accordion-block:hover svg {
+    transform: rotate(180deg);
+  }
+
+  .accordion-block__img:active {
+    cursor: wait;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  .accordion-title {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .accordion {
+    max-width: 40rem;
+  }
+
+  .accordion-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .accordion-block__img img {
+    padding: 1.25rem;
+    max-width: 17rem;
+  }
+}
+
+@media screen and (max-width: 819px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .accordion {
+    max-width: 100%;
+  }
+
+  .accordion-title {
+    font-size: 2rem;
+  }
+}
