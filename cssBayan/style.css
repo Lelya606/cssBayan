@@ -7,73 +7,84 @@
 }
 
 body {
-  margin: 0;
+  height: 100vh;
   background-color: var(--c-bone);
   color: var(--c-font);
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .accordion {
   max-width: 40rem;
   margin: 0 auto;
+  box-shadow: 0 4px 8px 3px rgb(0 0 0 / 15%);
 }
 
-.accordion-block__label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.accordion:hover .accordion-block path {
+  fill: var(--c-black);
+}
+
+.accordion:hover .accordion-block {
+  color: var(--c-black);
+}
+
+.accordion-title {
+  padding: 1.4rem;
+}
+
+.accordion-block__head {
   padding: 0.875rem 1.5rem;
   background: var(--c-ecru-white);
-}
-
-.accordion-block__label {
-  cursor: pointer;
 }
 
 .accordion-block input {
   display: none;
 }
 
-.accordion-block__label span {
-  width: 100%;
-}
-
 .accordion-block__img {
-  display: flex;
-  justify-content: center;
   height: 0;
+  margin: 0 auto;
+  text-align: center;
   background-color: var(--c-bridal-heath);
-  transform: translate(0, -50%) scaleY(0);
-  transition: transform 0.5s;
+  transform: translate(0,-50%) scaleY(0);
+  transition: height, ease-out 0.2s;
 }
 
 .accordion-block__img img {
   width: 100%;
-  max-width: 20rem;
+  max-width: 17rem;
   padding: 1.25rem;
 }
 
-.accordion-block__label svg {
-  transform: translateY(0);
-  transition: transform 0.25s;
+.accordion-block__img:active {
+  cursor: wait;
 }
 
-input:checked + .accordion-block__label path,
-.accordion-block__label:hover path {
+.accordion-block__head svg {
+  transform: translateY(0);
+  transition: transform 0.5s;
+}
+
+.accordion-block:hover,
+.accordion-block__label:hover {
+  cursor: pointer;
+}
+
+input:checked + .accordion-block__label path {
   fill: var(--c-black);
 }
 
-input:checked + .accordion-block__label span,
-.accordion-block__label:hover span {
+input:checked + .accordion-block__label span {
   color: var(--c-black);
 }
 
 input:checked + .accordion-block__label svg,
-.accordion-block__label:hover svg {
+.accordion-block:hover svg {
   transform: rotate(180deg);
 }
 
-input:checked ~ .accordion-block__img,
-.accordion-block__label:hover ~ .accordion-block__img {
+input:checked + .accordion-block__label .accordion-block__img,
+.accordion-block:hover .accordion-block__img {
   height: 100%;
-  transform: translate(0, 0);
+  transform: translate(0,0);
 }
